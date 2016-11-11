@@ -133,8 +133,7 @@ public class YouTubePlayerView: UIView, UIWebViewDelegate {
         webView.delegate = self
         webView.scrollView.scrollEnabled = false
     }
-
-
+    
     // MARK: Load player
 
     public func loadVideoURL(videoURL: NSURL) {
@@ -207,6 +206,12 @@ public class YouTubePlayerView: UIView, UIWebViewDelegate {
 
     // MARK: Player setup
 
+    public func setTransparentPlayerBackground() {
+        guard let webView = webView else { return }
+        webView.opaque = false
+        webView.backgroundColor = UIColor.clearColor()
+    }
+    
     private func loadWebViewWithParameters(parameters: YouTubePlayerParameters) {
 
         // Get HTML from player file in bundle
